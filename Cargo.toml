@@ -13,4 +13,4 @@ rocket_codegen = "0.4.4"
 rocket_cors = "0.5.2"
 rocket_contrib = "0.4.4"
 tokio = { version="0.2.20", features=["rt-threaded", "macros", "full"] }
-warpgrapher = { path = "/home/dev/projects/warpforge/warpgrapher", features = ["neo4j"] }
+warpgrapher = { git="https://github.com/warpforge/warpgrapher", branch="53-release-0.3.0", features = ["neo4j"] }
