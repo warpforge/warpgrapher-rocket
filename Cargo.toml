@@ -1,0 +1,16 @@
+[package]
+name = "warpgrapher-rocket"
+version = "0.1.0"
+authors = ["dev"]
+edition = "2018"
+
+[dependencies]
+env_logger = "0.7.1"
+log = "0.4.0"
+juniper_rocket = "0.5.2"
+rocket = "0.4.5"
+rocket_codegen = "0.4.4"
+rocket_cors = "0.5.2"
+rocket_contrib = "0.4.4"
+tokio = { version="0.2.20", features=["rt-threaded", "macros", "full"] }
+warpgrapher = { path = "/home/dev/projects/warpforge/warpgrapher", features = ["neo4j"] }
