@@ -1,5 +1,5 @@
 # Warpgrapher + Rocket
-![Build Status](https://github.com/warpforge/warpgrapher-rocket/workflows/Test/badge.svg)](https://github.com/warpforge/warpgrapher-rocket/actions?query=workflow%3A%22Test%22+branch%3Amaster)
+[![Build Status](https://github.com/warpforge/warpgrapher-rocket/workflows/Test/badge.svg)](https://github.com/warpforge/warpgrapher-rocket/actions?query=workflow%3A%22Test%22+branch%3Amaster)
 
 This project demonstrates how to run a [warpgrapher](https://github.com/warpforge/warpgrapher) service on a [rocket](https://github.com/SergioBenitez/Rocket) server. 
 
