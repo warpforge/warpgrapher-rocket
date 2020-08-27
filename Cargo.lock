@@ -2099,6 +2099,8 @@ dependencies = [
 [[package]]
 name = "warpgrapher"
 version = "0.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "48a3bc6a0f36c3cba20bcd6fbd0c35fe1f107c72cb8a1402a07ad06ad11650e6"
 dependencies = [
  "Inflector",
  "async-trait",
