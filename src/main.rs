@@ -12,7 +12,7 @@ use std::convert::TryFrom;
 use std::io::Cursor;
 use warpgrapher::engine::config::Configuration;
 use warpgrapher::engine::context::RequestContext;
-use warpgrapher::engine::database::neo4j::Neo4jEndpoint;
+use warpgrapher::engine::database::cypher::CypherEndpoint;
 use warpgrapher::engine::database::DatabaseEndpoint;
 use warpgrapher::juniper::http::playground::playground_source;
 use warpgrapher::Engine;
@@ -34,7 +34,7 @@ model:
 struct Rctx {}
 
 impl RequestContext for Rctx {
-    type DBEndpointType = Neo4jEndpoint;
+    type DBEndpointType = CypherEndpoint;
 
     fn new() -> Self {
         Rctx {}
@@ -62,8 +62,8 @@ impl<'r, 'o: 'r> Responder<'r, 'o> for GraphQLResponse {
 }
 
 #[get("/playground")]
-fn playground() -> rocket::response::content::Html<String> {
-    content::Html(playground_source("/graphql", None))
+fn playground() -> rocket::response::content::RawHtml<String> {
+    content::RawHtml(playground_source("/graphql", None))
 }
 
 #[post("/graphql", data = "<request>")]
@@ -85,7 +85,7 @@ async fn main() {
     let config = Configuration::try_from(CONFIG.to_string()).expect("Expected to parse config.");
 
     // define database endpoint
-    let db = Neo4jEndpoint::from_env()
+    let db = CypherEndpoint::from_env()
         .expect("Expected to read environment variables")
         .pool()
         .await
@@ -96,10 +96,10 @@ async fn main() {
         .build()
         .expect("Expected engine build.");
     println!("Running warpgrapher on http://localhost:8000/graphql");
-    rocket::build()
+    let _ = rocket::build()
         .manage(engine)
         .mount("/", routes![graphql, playground])
         .launch()
         .await
-        .expect("Expected successfull rocket launch")
+        .expect("Expected successfull rocket launch");
 }
