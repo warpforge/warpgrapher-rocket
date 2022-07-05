@@ -8,15 +8,15 @@ This project demonstrates how to run a [warpgrapher](https://github.com/warpforg
 - Running neo4j database:
 
 ```bash
-export WG_NEO4J_HOST=127.0.0.1
-export WG_NEO4J_READ_REPLICAS=127.0.0.1
-export WG_NEO4J_PORT=7687
-export WG_NEO4J_USER=neo4j
-export WG_NEO4J_PASS=*MY-DB-PASSWORD*
+export WG_CYPHER_HOST=127.0.0.1
+export WG_CYPHER_READ_REPLICAS=127.0.0.1
+export WG_CYPHER_PORT=7687
+export WG_CYPHER_USER=neo4j
+export WG_CYPHER_PASS=*MY-DB-PASSWORD*
 ```
 
 ```bash
-docker run --rm -p 7687:7687 -e NEO4J_AUTH="${WG_NEO4J_USER}/${WG_NEO4J_PASS}" neo4j:4.4
+docker run --rm -p 7687:7687 -e NEO4J_AUTH="${WG_CYPHER_USER}/${WG_CYPHER_PASS}" neo4j:4.4
 ```
 
 ### Dependencies
